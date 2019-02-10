@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Vtičniki</string>
+
+    <!--Dialog-->
+    <string name="dialog_positive">Shrani</string>
+    <string name="dialog_title">Prosimo vnesite število vtičnikov na stran</string>
+
+    <!--Plugin-->
+    <string name="plugin_loading">Nalagam…</string>
+    <string name="plugin_list_retry">Poizkusi ponovno</string>
+    <string name="plugin_list_retry_message">Prišlo je do napake pri nalaganju</string>
+
+    <!--Plugin content-->
+    <string name="plugin_content_homepage">Odpri povezavo</string>
+    <string name="plugin_content_retry">Ponovno prenesi</string>
+    <string name="plugin_content_downloading">Prenašanje datoteke: %d%%</string>
+    <string name="plugin_content_download_error">Pri prenašanju datoteke je prišlo do napake</string>
+    <string name="plugin_content_analyse_error">Pri analiziranju datoteke je prišlo do napake</string>
+    <string name="plugin_content_storage_denied">Vtičnika ni mogoče prenesti, aplikacija nima dovoljenja do shrambe. Za nadaljevanje prosimo dovolite aplikaciji uporabo shrambe.</string>
+
+    <!--Plugin content element-->
+    <string name="plugin_content_element_text">Vrsta datoteke: %1$s - %2$s</string>
+</resources>

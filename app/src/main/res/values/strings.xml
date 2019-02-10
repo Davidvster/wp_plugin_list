@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Plugins App</string>
+
+    <!--Dialog-->
+    <string name="dialog_positive">Save</string>
+    <string name="dialog_title">Please insert the number of plugins you want per page</string>
+
+    <!--Plugin-->
+    <string name="plugin_loading">Loading…</string>
+    <string name="plugin_list_retry">Retry</string>
+    <string name="plugin_list_retry_message">An error occurred loading data</string>
+
+    <!--Plugin content-->
+    <string name="plugin_content_homepage">Open homepage</string>
+    <string name="plugin_content_retry">Retry downloading</string>
+    <string name="plugin_content_downloading">Currently downloading file: %d%%</string>
+    <string name="plugin_content_download_error">An error occurred while downloading the file</string>
+    <string name="plugin_content_analyse_error">An error occurred while analysing the file.</string>
+    <string name="plugin_content_storage_denied">Unable to download plugin, storage access is permanently denied. Please allow storage access to continue.</string>
+
+    <!--Plugin content element-->
+    <string name="plugin_content_element_text">File type: %1$s - %2$s</string>
+</resources>
