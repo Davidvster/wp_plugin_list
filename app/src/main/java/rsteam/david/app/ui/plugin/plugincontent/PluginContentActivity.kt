@@ -39,7 +39,6 @@ class PluginContentActivity : AppCompatActivity() {
 
     private val disposable = CompositeDisposable()
 
-    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_plugin_content)
@@ -47,21 +46,27 @@ class PluginContentActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         title = intent.getStringExtra(ARG_PLUGIN_NAME)
 
-        perm = permissionsBuilder(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE).build()
-        perm.listeners {
-            onAccepted {
-                perm.detachAllListeners()
-                storagePermanentlyDeniedOrAccepted = true
-                plugin_content_info_text.visibility = View.GONE
-                setPluginContent()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            perm = permissionsBuilder(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE).build()
+            perm.listeners {
+                onAccepted {
+                    perm.detachAllListeners()
+                    storagePermanentlyDeniedOrAccepted = true
+                    plugin_content_info_text.visibility = View.GONE
+                    setPluginContent()
+                }
+                onDenied { }
+                onPermanentlyDenied {
+                    perm.detachAllListeners()
+                    storagePermanentlyDeniedOrAccepted = true
+                    plugin_content_info_text.text = getString(R.string.plugin_content_storage_denied)
+                    plugin_content_info_text.visibility = View.VISIBLE
+                }
             }
-            onDenied { }
-            onPermanentlyDenied {
-                perm.detachAllListeners()
-                storagePermanentlyDeniedOrAccepted = true
-                plugin_content_info_text.text = getString(R.string.plugin_content_storage_denied)
-                plugin_content_info_text.visibility = View.VISIBLE
-            }
+        } else {
+            storagePermanentlyDeniedOrAccepted = true
+            plugin_content_info_text.visibility = View.GONE
+            setPluginContent()
         }
     }
 
